@@ -353,7 +353,7 @@ def start_runner_server(project, runner, bind_address="localhost", port_number=8
 
     application = web.Application(
         router.apply_routes([
-            (r"/(.*\.(html|css|js|swf|png|ico))$",
+            (r"/(.*\.(html|css|js|swf|png|ico|webp))$",
                 web.StaticFileHandler, {"path": PUBLIC_PATH}),
             ("/", IndexHandler),
             ("/api/(.+)$", ApiHandler, {"runner": runner})]),
@@ -407,7 +407,7 @@ def start_warrior_server(warrior, bind_address="localhost", port_number=8001,
 
     application = web.Application(
         router.apply_routes([
-            (r"/(.*\.(html|css|js|swf|png|ico))$",
+            (r"/(.*\.(html|css|js|swf|png|ico|webp))$",
                 web.StaticFileHandler, {"path": PUBLIC_PATH}),
             ("/", IndexHandler),
             ("/api/(.+)$", ApiHandler, {"warrior": warrior})]),
